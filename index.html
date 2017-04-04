@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interview Demo</title>
+</head>
+<body>
+<script type="text/javascript">
+
+//累加
+	const add = (...args)=> {
+    	let sum =  args.reduce((pre,crt)=> pre + crt);
+    	const accu = (...args2)=> {
+      	sum += args2.reduce((pre,crt)=> pre + crt,0);
+      	return accu;
+    	}
+    	accu.valueOf = ()=> sum;
+    	return accu;
+ 	}
+ //字符串匹配
+	let str = 'abcdefgefgefg';
+	let reg = /efg/g;
+
+	const matchStr = (str)=> {
+  		console.log(str.match(reg));
+	}
+
+	const execStr = (str)=> {
+	  let result;
+	  while(result = reg.exec(str)){
+	      console.log(result);
+	  }
+	}
+	matchStr(str);
+	execStr(str);
+</script>
+</body>
+</html>
