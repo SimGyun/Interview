@@ -66,6 +66,7 @@ const testA = ()=> {
 原题是这样的
 在 'abcdefg' 中匹配 'efg'.
 一看是不是很简单? 但是当时我在用exec()还是match()之间纠结了一会。。
+这两个方法都可以实现字符串匹配的功能，前者是RegExpObject的方法,后者是StringObject的方法。下面就来看看它们的异同。
 
 ##### 当正则是非全局匹配模式时，
 此时，RegExp的exec()返回的结果与String.match()返回的结果是相同的。
