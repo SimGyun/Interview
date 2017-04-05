@@ -32,6 +32,27 @@
 	}
 	matchStr(str);
 	execStr(str);
+//出现次数最多字符
+	const getChar = (str)=> {
+      let obj = {};
+      let len = str.length;
+      for(let i = 0;i<len;i++){
+        let char = str.charAt(i);
+        if(!obj[char]){
+          obj[char] = 1;
+        }else{
+          obj[char]++;
+        }
+      }
+      let count = 0 , char = '';
+      for(let [key,value] of Object.entries(obj)){
+        if(value > count){
+          char = key;
+          count = value;
+        }
+      }
+      console.log(`character ${char} had shown up ${count} times`);
+   }	
 </script>
 </body>
 </html>
