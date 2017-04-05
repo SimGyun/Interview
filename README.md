@@ -110,3 +110,38 @@ const testA = ()=> {
 ```
 
 因此，用 match() 还是 exec(), 就看你需要什么信息了。
+
+## 出现次数最多的字符
+这次还写了一道 “求一个字符串中出现次数最多的字符，以及出现多少次”。当时脑海中马上闪出 Object.entries()。
+但这个方法是es7提出的草案，目前处于试验中的功能。
+不过既然是捣腾代码，就试一下吧~
+
+1. 首先可以用一个Object记录相应的字符出现了多少次，获取每个字符的方法 **stringObject.charAt()**
+2. 遍历对象，找出次数最多的字符以及次数.这里我用的是 **Object.entries()**;
+
+```
+  const getChar = (str)=> {
+      let obj = {};
+      let len = str.length;
+      for(let i = 0;i<len;i++){
+        let char = str.charAt(i);
+        if(!obj[char]){
+          obj[char] = 1;
+        }else{
+          obj[char]++;
+        }
+      }
+      let count = 0 , char = '';
+
+      // 用es5的for in 循环，或者Object.keys()都可以
+
+      for(let [key,value] of Object.entries(obj)){
+        if(value > count){
+          char = key;
+          count = value;
+        }
+      }
+      console.log(`character ${char} had shown up ${count} times`);
+   }
+   getChar('sasdgthgsfsggaasssss');   // character s had shown up 9 times
+```
