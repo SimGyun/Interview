@@ -37,7 +37,6 @@ add(2)(5)          //7
 ##### 小疑惑
 - 返回值是**Symbol**
 - valueOf()以及toString()的返回值都不是基本数据类型 
-- 
 在以上两种情况下 我把返回值打印出来 但是在控制台是这样的
 ```
     #<Function>
@@ -94,7 +93,7 @@ const testA = ()=> {
   const matchStr = (str)=> str.match(reg);  //["efg", "efg", "efg"]
 ```
 
-2. exec()在RegExp对象的lastIndex属性指定的字符处开始检索字符串,默认等于0。当 exec() 找到了与表达式相匹配的文本时，在匹配后，把 RegExp 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。因此，在循环中反复地调用 exec() 方法可获得全局模式的完整检索信息。
+2. exec()在RegExp对象的lastIndex属性指定的字符处开始检索字符串,默认等于0。当 exec() 找到了与表达式相匹配的文本时，在匹配后，把 RegExp 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。直到匹配完成，返回结果null.因此，在循环中反复地调用 exec() 方法可获得全局模式的完整检索信息。
 ```
   let reg = /efg/g;
   let str = 'abcdefgefgefg';
